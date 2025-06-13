@@ -1,5 +1,6 @@
-// verifier.js
-// Verwendet globales window.argon2 aus UMD-Bundler
+if (window.argon2 && window.argon2.wasmURL === undefined) {
+  window.argon2.wasmURL = 'docs/dist/argon2.wasm';
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const verifyBtn = document.getElementById('verify');
