@@ -3,9 +3,14 @@
 
 (function() {
   'use strict';
-  const { hash, ArgonType } = window.argon2;
 
   document.addEventListener('DOMContentLoaded', () => {
+    if (!window.argon2) {
+      console.error('argon2 library not loaded');
+      return;
+    }
+    const { hash, ArgonType } = window.argon2;
+
     const goBtn = document.getElementById('go');
     const copyBtn = document.getElementById('copy');
     const outField = document.getElementById('out');
