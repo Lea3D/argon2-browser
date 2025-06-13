@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  if (!window.argon2) {
-    console.error('argon2 library not present – ensure <script src="docs/dist/argon2.js"></script> is loaded BEFORE generator.js');
-    return;
-  }
+  const init = () => {
+    if (!window.argon2) {
+      console.error('argon2 library still not loaded');
+      return;
+    }
 
-  const { hash, ArgonType } = window.argon2;
-  const goBtn = document.getElementById('go');
-  const copyBtn = document.getElementById('copy');
-  const outField = document.getElementById('out');
+    const { hash, ArgonType } = window.argon2;
+    const goBtn = document.getElementById('go');
+    const copyBtn = document.getElementById('copy');
+    const outField = document.getElementById('out');
 
   goBtn.addEventListener('click', async () => {
     const pass = document.getElementById('pass').value;
@@ -39,9 +40,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  copyBtn.addEventListener('click', () => {
-    navigator.clipboard.writeText(outField.value)
-      .then(() => console.log('Copied to clipboard'))
-      .catch(err => console.error('Copy failed', err));
-  });
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(outField.value)
+        .then(() => console.log('Copied to clipboard'))
+        .catch(err => console.error('Copy failed', err));
+    });
+  };
+
+  if (window.argon2) {
+    init();
+  } else {
+    const script = document.createElement('script');
+    script.src = 'docs/dist/argon2.js';
+    script.onload = init;
+    script.onerror = () => console.error('Failed to load argon2 library');
+    document.head.appendChild(script);
+  }
 });

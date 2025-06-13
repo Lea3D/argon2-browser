@@ -184,6 +184,10 @@ Prerequisites:
 - emscripten with WebAssembly support ([howto](http://webassembly.org/getting-started/developers-guide/))
 - CMake
 
+`generator.js` will automatically load `docs/dist/argon2.js` if the library is not yet present.
+To avoid an extra network request, you can still include `argon2.js` manually before `generator.js`.
+
+
 ## License
 
 [MIT](https://opensource.org/licenses/MIT)
