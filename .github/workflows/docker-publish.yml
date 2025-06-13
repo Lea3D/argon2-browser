@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    tags:
+      - 'v*'
   workflow_dispatch:
 
 jobs:
@@ -32,7 +34,6 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
             type=semver,pattern=latest,priority=1000
-            type=raw,value=dev,enable=${{ github.ref == 'refs/heads/master' }}
           flavor: latest=auto
 
       - name: Set up QEMU
