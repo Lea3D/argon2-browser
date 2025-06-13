@@ -3,7 +3,7 @@ name: Build & Publish Docker
 on:
   push:
     branches:
-      - main    # oder dein Default-Branch
+      - master
 
 jobs:
   build-and-push:
