@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     // Dynamisch das UMD-Skript nachladen
     const script = document.createElement('script');
-    script.src = 'docs/dist/argon2.js';
+    script.src = '/docs/dist/argon2.js';
     script.onload = initGenerator;
     script.onerror = () => console.error('Failed to load argon2.js');
     document.head.appendChild(script);
