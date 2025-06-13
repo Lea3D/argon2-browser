@@ -1,23 +1,21 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Argon2 Password-Hash Generator</title>
+  <title>Argon2 Password-Hash & Verifier Tool</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
+    <!-- Generator Section -->
     <h1>Argon2 Password-Hash Generator</h1>
-
     <label>Passwort:
       <input type="text" id="pass" placeholder="Gib dein Passwort ein (bis zu 128 Zeichen)" maxlength="128">
     </label>
     <label>Salt (optional, Hex):
       <input type="text" id="salt" placeholder="16 Bytes (32 hex) oder leer für Zufallssalt" maxlength="32">
     </label>
-
     <div class="grid settings">
       <label>Variante:
         <select id="type">
@@ -36,20 +34,30 @@
         <input type="number" id="parallelism" value="4" min="1">
       </label>
     </div>
-
     <button id="go">Hash erzeugen</button>
-
     <div class="output-container">
       <label>Ergebnis:</label>
       <div class="output-flex">
-        <textarea id="out" rows="4" readonly placeholder="Hier erscheint der generierte Hash..."></textarea>
+        <textarea id="out" rows="4" readonly placeholder="Generierter Hash..."></textarea>
         <button class="copy-button" id="copy">Copy</button>
       </div>
     </div>
+    <hr>
+    <!-- Verifier Section -->
+    <h1>Argon2 Hash Verifier</h1>
+    <label>Plain Text:
+      <input type="text" id="verify-pass" placeholder="Gib das Passwort ein" maxlength="128">
+    </label>
+    <label>Hash:
+      <input type="text" id="verify-hash" placeholder="Gib den zu prüfenden Hash ein">
+    </label>
+    <button id="verify">Hash verifizieren</button>
+    <pre id="verify-result" class="verify-output"></pre>
   </div>
 
-  <!-- Argon2 UMD-Bundler laden für global argon2 -->
-  <script src="node_modules/argon2-browser/dist/argon2-bundled.min.js"></script>
-  <!-- Generator-Skript -->
+  <!-- Scripts -->
+  <script src="node_modules/argon2-browser/lib/argon2.js"></script>
   <script src="generator.js"></script>
+  <script src="verifier.js"></script>
 </body>
+</html>
