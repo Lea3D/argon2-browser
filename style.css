@@ -1,0 +1,58 @@
+/* style.css */
+:root {
+  --bg: #121212;
+  --surface: #1f1f1f;
+  --text: #e0e0e0;
+  --muted: #888;
+  --accent: #bb86fc;
+  --success: #4CAF50;
+  --error: #F44336;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  margin: 0; padding: 1rem;
+}
+.container {
+  width: 100%; background: var(--surface);
+  border-radius: 8px; padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+h1 {
+  text-align: center; margin: 1rem 0;
+  color: var(--accent);
+}
+label { display: block; margin: 0.75rem 0; }
+input, select, textarea {
+  width: 100%; background: var(--bg);
+  border: 1px solid var(--muted); border-radius: 4px;
+  color: var(--text); font-family: monospace;
+  font-size: 1rem; padding: 0.5rem;
+}
+.grid.settings {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem; margin-bottom: 1rem;
+}
+button {
+  background: var(--accent); border: none;
+  border-radius: 4px; color: #fff;
+  cursor: pointer; padding: 0.75rem;
+  font-size: 1rem; width: 100%; margin-top: 0.5rem;
+}
+button:hover { opacity: 0.9; }
+.output-container { margin: 1.5rem 0; }
+.output-flex {
+  display: flex; gap: 0.5rem; align-items: flex-start;
+}
+.copy-button { width: auto; padding: 0.5rem; align-self: start; }
+hr {
+  border: none; height: 1px; background: var(--muted); margin: 2rem 0;
+}
+.verify-output {
+  margin-top: 0.5rem; font-family: monospace;
+}
+.verify-output {
+  color: var(--text);
+}

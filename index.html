@@ -1,0 +1,55 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Argon2 Password-Hash Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Argon2 Password-Hash Generator</h1>
+
+    <label>Passwort:
+      <input type="text" id="pass" placeholder="Gib dein Passwort ein (bis zu 128 Zeichen)" maxlength="128">
+    </label>
+    <label>Salt (optional, Hex):
+      <input type="text" id="salt" placeholder="16 Bytes (32 hex) oder leer für Zufallssalt" maxlength="32">
+    </label>
+
+    <div class="grid settings">
+      <label>Variante:
+        <select id="type">
+          <option value="Argon2d">Argon2d</option>
+          <option value="Argon2i">Argon2i</option>
+          <option value="Argon2id" selected>Argon2id</option>
+        </select>
+      </label>
+      <label>Iterationenzahl (time):
+        <input type="number" id="time" value="3" min="1">
+      </label>
+      <label>Speicher (KiB):
+        <input type="number" id="mem" value="65536" min="8" step="8">
+      </label>
+      <label>Parallelität (threads):
+        <input type="number" id="parallelism" value="4" min="1">
+      </label>
+    </div>
+
+    <button id="go">Hash erzeugen</button>
+
+    <div class="output-container">
+      <label>Ergebnis:</label>
+      <div class="output-flex">
+        <textarea id="out" rows="4" readonly placeholder="Hier erscheint der generierte Hash..."></textarea>
+        <button class="copy-button" id="copy">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Argon2 UMD-Bundler laden für global argon2 -->
+  <script src="node_modules/argon2-browser/dist/argon2-bundled.min.js"></script>
+  <!-- Generator-Skript -->
+  <script src="generator.js"></script>
+</body>
