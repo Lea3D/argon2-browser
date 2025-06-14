@@ -3,7 +3,7 @@ name: Build & Publish Docker
 on:
   push:
     branches:
-      - master
+      - lea3d_dev
     tags:
       - 'v*'
   workflow_dispatch:
