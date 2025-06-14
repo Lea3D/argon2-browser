@@ -56,6 +56,10 @@
   </div>
 
   <!-- Scripts -->
+  <script>
+    window.argon2 = window.argon2 || {};
+    window.argon2.wasmURL = window.argon2.wasmURL || 'docs/dist/argon2.wasm';
+  </script>
   <script src="/docs/dist/argon2.js"></script>
   <script src="generator.js"></script>
   <script src="verifier.js"></script>
