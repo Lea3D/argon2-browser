@@ -11,7 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const { hash, ArgonType } = window.argon2;
+    const { hash } = window.argon2;
+    const ArgonTypeEnum = window.argon2.ArgonType || {
+      Argon2d: 0,
+      Argon2i: 1,
+      Argon2id: 2
+    };
     const goBtn = document.getElementById('go');
     const copyBtn = document.getElementById('copy');
     const outField = document.getElementById('out');
@@ -33,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       time: Number(document.getElementById('time').value) || 1,
       mem: Number(document.getElementById('mem').value) || 8,
       parallelism: Number(document.getElementById('parallelism').value) || 1,
-      type: ArgonType[document.getElementById('type').value]
+      type: ArgonTypeEnum[document.getElementById('type').value]
     };
 
     try {
