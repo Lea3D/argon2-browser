@@ -16,7 +16,7 @@ WORKDIR /usr/share/nginx/html
 COPY index.html style.css generator.js verifier.js ./
 
 # Copy compiled Argon2 UMD and WASM from docs/dist
-COPY docs/dist/argon2.js docs/dist/argon2.wasm ./docs/dist/
+COPY docs/dist/argon2.js docs/dist/argon2.wasm docs/dist/argon2-simd.wasm ./docs/dist/
 
 EXPOSE 80
 
