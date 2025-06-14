@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   if (window.argon2 && window.argon2.wasmURL === undefined) {
-    window.argon2.wasmURL = '/docs/dist/argon2.wasm';
+    window.argon2.wasmURL = 'docs/dist/argon2.wasm';
   }
 
   const init = () => {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
   } else {
     const script = document.createElement('script');
-    script.src = '/docs/dist/argon2.js';
+    script.src = 'docs/dist/argon2.js';
     script.onload = init;
     script.onerror = () => console.error('Failed to load argon2 library');
     document.head.appendChild(script);

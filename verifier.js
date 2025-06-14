@@ -1,5 +1,5 @@
 if (window.argon2 && window.argon2.wasmURL === undefined) {
-  window.argon2.wasmURL = '/docs/dist/argon2.wasm';
+  window.argon2.wasmURL = 'docs/dist/argon2.wasm';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
