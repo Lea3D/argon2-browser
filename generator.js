@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
+  if (window.argon2 && window.argon2.wasmURL === undefined) {
+    window.argon2.wasmURL = 'docs/dist/argon2.wasm';
+  }
+
   const init = () => {
     if (!window.argon2) {
       console.error('argon2 library still not loaded');
